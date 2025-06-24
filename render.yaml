@@ -1,0 +1,13 @@
+# render.yaml
+services:
+  - type: web
+    name: your-app-name  # Change this
+    runtime: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      python app.py  # Or your main file (e.g., wsgi.py, main.py)
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16  # Match your local version
