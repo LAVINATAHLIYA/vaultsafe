@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault Safe - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-6xl bg-white rounded-xl overflow-hidden shadow-lg grid grid-cols-1 md:grid-cols-2">
+
+    <!-- Left: Image -->
+    <div class="hidden md:block bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/login-bg.png') }}'); min-height: 500px;">
+    </div>
+
+    <!-- Right: Login Form -->
+    <div class="p-10 bg-white flex flex-col justify-center">
+      <h2 class="text-xl text-gray-600 mb-2">Welcome to</h2>
+      <h1 class="text-4xl font-bold text-violet-600 mb-8">Vault<br>Safe</h1>
+
+      <form method="POST" action="{{ url_for('login') }}" class="space-y-5">
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <div class="flex items-center bg-gray-100 px-3 py-2 rounded-md">
+            <span class="mr-2 text-gray-500">📧</span>
+            <input type="email" name="email" required class="w-full bg-transparent outline-none" placeholder="Enter your email" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Password</label>
+          <div class="flex items-center bg-gray-100 px-3 py-2 rounded-md">
+            <span class="mr-2 text-gray-500">🔑</span>
+            <input type="password" name="password" required class="w-full bg-transparent outline-none" placeholder="Enter your password" />
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-violet-600 text-white rounded-lg font-semibold text-lg hover:bg-violet-700 transition">
+          Login
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-gray-600">
+        Don’t have an account?
+        <a href="{{ url_for('signup') }}" class="text-violet-600 hover:underline">Register</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
